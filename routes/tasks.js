@@ -12,3 +12,13 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// Create a task
+router.post('/', async (req, res, next) => {
+  try {
+    const task = await Task.create({ title: req.body.title });
+    res.status(201).json(task);
+  } catch (err) {
+    next(err);
+  }
+});
