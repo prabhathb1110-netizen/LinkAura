@@ -22,3 +22,18 @@ router.post('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// Update a task (mark done / not done)
+router.put('/:id', async (req, res, next) => {
+  try {
+    const task = await Task.findByIdAndUpdate(
+      req.params.id,
+      { done: req.body.done },
+      { new: true }
+    );
+    if (!task) return res.status(404).json({ error: 'Task not found' });
+    res.json(task);
+  } catch (err) {
+    next(err);
+  }
+});
