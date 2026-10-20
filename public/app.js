@@ -47,3 +47,27 @@ async function loadTasks() {
 }
 
 loadTasks();
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  showMessage('');
+
+  const title = input.value.trim();
+  if (!title) return;
+
+  try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title })
+    });
+    if (!res.ok) {
+      const data = await res.json();
+      throw new Error(data.error || 'Could not add task');
+    }
+    input.value = '';
+    loadTasks();
+  } catch (err) {
+    showMessage(err.message);
+  }
+});
