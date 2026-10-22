@@ -71,3 +71,24 @@ form.addEventListener('submit', async (e) => {
     showMessage(err.message);
   }
 });
+
+list.addEventListener('click', async (e) => {
+  const li = e.target.closest('li');
+  if (!li || !li.dataset.id) return;
+  const id = li.dataset.id;
+
+  try {
+    if (e.target.classList.contains('delete')) {
+      await fetch(`${API}/${id}`, { method: 'DELETE' });
+    } else {
+      await fetch(`${API}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ done: !li.classList.contains('done') })
+      });
+    }
+    loadTasks();
+  } catch {
+    showMessage('Something went wrong.');
+  }
+});
