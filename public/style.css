@@ -11,3 +11,39 @@ h1 {
   text-align: center;
   margin: 40px 0 20px;
 }
+
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+#task-form {
+  display: flex;
+  gap: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#task-input:focus {
+  outline: 2px solid #6366f1;
+  border-color: transparent;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  background: #6366f1;
+  color: #fff;
+}
+
+button:hover { background: #4f46e5; }
