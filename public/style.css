@@ -78,3 +78,17 @@ button.delete {
 }
 
 button.delete:hover { background: #dc2626; }
+
+li.empty {
+  justify-content: center;
+  color: #6b7280;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.message {
+  color: #dc2626;
+  min-height: 1.2em;
+  margin: 10px 0 0;
+}
