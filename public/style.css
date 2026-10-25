@@ -92,3 +92,10 @@ li.empty {
   min-height: 1.2em;
   margin: 10px 0 0;
 }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem; margin-top: 24px; }
+  #task-form { flex-direction: column; }
+  button { width: 100%; }
+  button.delete { width: auto; }
+}
