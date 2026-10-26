@@ -99,3 +99,10 @@ li.empty {
   button { width: 100%; }
   button.delete { width: auto; }
 }
+
+footer {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  padding: 20px 0;
+}
